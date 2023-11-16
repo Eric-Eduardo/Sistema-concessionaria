@@ -70,6 +70,12 @@ string Executor::processarLinha(string linha)
         linha = restoDe(buf);
         return sistema->create_concessionaria(linha);
     }
+    else if (nomeComando == "add-car")
+    {
+        string linha;
+        linha = restoDe(buf);
+        return sistema->add_car(linha);
+    }
 
     return "Erro";
 }

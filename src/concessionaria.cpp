@@ -4,6 +4,8 @@ Concessionaria::Concessionaria(std::string _nome, std::string _cnpj): nome(_nome
     estoque = 0;
 }
 
+Concessionaria::~Concessionaria() {}
+
 void Concessionaria::setNome(std::string _nome) {
     nome = _nome;
 }

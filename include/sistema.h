@@ -25,6 +25,12 @@ class Sistema
         // Mostra as informações das concessionárias no vector "concessionarias"
         void exibir_concessionarias();
         
+        
+        /* Cria um automovel e retorna uma string de erro/sucesso
+            @param linha os dados do automovel
+            @return uma string contendo uma mensagem de erro ou "Automovel Criada"
+        */
+        std::string add_car(const std::string linha);
 
 };
 
