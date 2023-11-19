@@ -1,3 +1,6 @@
+#ifndef CONCESSIONARIA_H
+#define CONCESSIONARIA_H
+
 #include <string>
 #include <ostream>
 
@@ -18,3 +21,5 @@ class Concessionaria {
         int getEstoque();
         friend std::ostream& operator<< (std::ostream &o, Concessionaria const &concessionaria);
 };
+
+#endif

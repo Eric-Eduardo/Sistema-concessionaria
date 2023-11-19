@@ -1,9 +1,9 @@
 
 # Identificação
 
-* Nome:
+* Nome: Eric Eduardo Alves Azevedo
 
-* Matrícula:
+* Matrícula: 20220051953
   
 # Compilação  
 
@@ -11,7 +11,7 @@
 
 # Limitações
 
-* a descrição das limitações (caso existam) do programa e quaisquer dificuldades encontradas
+* Não é possível compilar com a opção `-fsanitize=address`, pois será emitido um erro.
    
 # Autoavaliação
 
