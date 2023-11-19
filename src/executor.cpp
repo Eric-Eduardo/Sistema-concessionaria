@@ -54,27 +54,31 @@ string Executor::processarLinha(string linha)
     string nomeComando;
     buf >> nomeComando;
 
-    if (nomeComando.empty())
-    {
+    if (nomeComando.empty()) {
         return "Comando Inválido <vazio>";
     }
 
-    if (nomeComando == "quit")
-    {
+    if (nomeComando == "quit") {
         this->sair = true;
         return sistema->quit();
     }
-    else if (nomeComando == "create-concessionaria")
-    {
+    
+    else if (nomeComando == "create-concessionaria") {
         string linha;
         linha = restoDe(buf);
         return sistema->create_concessionaria(linha);
     }
-    else if (nomeComando == "add-car")
-    {
+    
+    else if (nomeComando == "add-car") {
         string linha;
         linha = restoDe(buf);
         return sistema->add_car(linha);
+    }
+
+    else if (nomeComando == "add-bike") {
+        string linha;
+        linha = restoDe(buf);
+        return sistema->add_bike(linha);
     }
 
     return "Erro";

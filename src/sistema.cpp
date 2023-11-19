@@ -6,8 +6,7 @@
 #include <vector>
 #include <iterator>
 #include "automovel.h"
-#include <memory>
-
+#include "moto.h"
 // #include <stdlib.h>
 // #include <stdio.h>
 
@@ -45,15 +44,15 @@ string Sistema::create_concessionaria(const string linha)
 
     Concessionaria concessionaria(nome, cnpj);
     concessionarias.push_back(concessionaria);
-
+    exibir_automoveis();
     return "Concessionaria criada!";
 }
 
-// Adicioanr um automóvel no sistema
+// Criar um automoveis
 string Sistema::add_car(const string linha) {
-/* 
+/* Testes
 add-car IMD_SA Toyota 100000 9BRBLWHEXG0107721 2019 gasolina
-add-car ERICOTA Geep 10000 ABB66D7CHK77 2020 eletrico
+add-car ERIC_teste Geep 10000 ABB66D7CHK77 2020 eletrico
 add-car DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 eletrico
 */
     char _linha[linha.length() + 1];
@@ -76,15 +75,42 @@ add-car DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 eletrico
     
 
     Automovel automovel(concessionaria, marca, preco, chassi, ano, tipoMotor);
-    // Automovel* automovel = new Automovel(concessionaria, marca, preco, chassi, ano, tipoMotor);
-    /*
-    Atribuímos o automovel a um ponteiro para veículo para que seja possívle adicionar no vetor de veículos.
-    Essa conversão é possível pois todo automovel é um veiculo.
-    */
-    // Veiculo* veiculo = automovel; 
     automoveis.push_back(automovel);
     exibir_automoveis();
     return "Carro criado!";
+}
+
+// Criar uma moto
+string Sistema::add_bike(const string linha) {
+/* Testes
+add-bike IMD_SA Toyota 100000 9BRBLWHEXG0107721 2019 classico
+add-bike ERIC_teste Geep 10000 ABB66D7CHK77 2020 esportivo
+add-bike DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 esportivo
+*/
+    char _linha[linha.length() + 1];
+    
+    // Para que possamos utilizar a função strcpy é necessário usar um dado do tipo char*. Então é feita a conversão de string para char*
+    strcpy(_linha, linha.c_str());
+    
+    char* concessionaria = strtok(_linha, " ");
+    char* marca = strtok(NULL, " ");
+    char* preco_str = strtok(NULL, " ");
+    char* chassi = strtok(NULL, " ");
+    char* ano_str = strtok(NULL, " ");
+    char* modelo = strtok(NULL, " ");
+
+    float preco;
+    preco = strtof(preco_str, NULL);
+
+    int ano;
+    ano = strtol(ano_str, NULL, 10); // conversão de char* para inteiro
+    
+
+    Moto moto(concessionaria, marca, preco, chassi, ano, modelo);
+    motos.push_back(moto);
+    exibir_motos();
+
+    return "Moto criada!";
 }
 
 // Exibe o nome, cnpj e estoque das concessionárias existentes
@@ -98,15 +124,26 @@ void Sistema::exibir_concessionarias() {
 	for (int i=0; i < totalConcessionarias; i++) {
 		cout << i+1 << ". " << concessionarias[i] << endl;
 	}
+    cout << "\n" << endl;
 }
 
 void Sistema::exibir_automoveis() {
-    int totalVeiculos = automoveis.size();
+    int totalAutomoveis = automoveis.size();
 	
-    cout << totalVeiculos << " automóveis encontradas:" << endl;
+    cout << totalAutomoveis << " automoveis encontradas:" << endl;
 
-	for (int i = 0; i < totalVeiculos; i++) {
-        // automovel = (Automovel*)(veiculos[i]);        
+	for (int i = 0; i < totalAutomoveis; i++) {
 		cout << i+1 << ". " << automoveis[i] << endl;
+	}
+    cout << "\n" << endl;
+}
+
+void Sistema::exibir_motos() {
+    int totalMotos = motos.size();
+	
+    cout << "\nTotal de motos: " << totalMotos << endl;
+
+	for (int i = 0; i < totalMotos; i++) {
+		cout << motos[i] << "\n" << endl;
 	}
 }

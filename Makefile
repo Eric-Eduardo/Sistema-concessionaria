@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := all
 
 #quando adicionar uma nova dependencia não esqueça de atualizar aqui!
-OBJECTS=build/sistema.o build/executor.o build/concessionaria.o build/veiculo.o build/automovel.o
+OBJECTS=build/sistema.o build/executor.o build/concessionaria.o build/veiculo.o build/automovel.o build/moto.o
 
 build/sistema.o: src/sistema.cpp include/sistema.h
 	g++ -Iinclude src/sistema.cpp -c -o build/sistema.o
@@ -17,6 +17,9 @@ build/veiculo.o: src/veiculo.cpp include/veiculo.h
 
 build/automovel.o: src/automovel.cpp include/automovel.h
 	g++ -Iinclude src/automovel.cpp -c -o build/automovel.o
+
+build/moto.o: src/moto.cpp include/moto.h
+	g++ -Iinclude src/moto.cpp -c -o build/moto.o
 
 #para adicionar novas regras apenas siga o formato
 #build/concessionaria.o: src/concessionaria.cpp include/concessionaria.h

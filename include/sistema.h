@@ -5,6 +5,7 @@
 #include <iostream>
 #include "concessionaria.h"
 #include "automovel.h"
+#include "moto.h"
 
 // Sistema deve concentrar todas as operações
 class Sistema
@@ -12,6 +13,7 @@ class Sistema
     private:
         std::vector<Concessionaria> concessionarias; //um vetor com todos as concessionarias
         std::vector<Automovel> automoveis; //um vetor com todos os automoveis
+        std::vector<Moto> motos; //um vetor com todos as motos
     public:
         ~Sistema();
         /*Encerra o funcionamento do programa.
@@ -31,11 +33,20 @@ class Sistema
         */
         std::string add_car(const std::string linha);
 
+        /* Cria uma moto e retorna uma string de erro/sucesso
+            @param linha os dados da motocicleta
+            @return uma string contendo uma mensagem de erro ou "Moto Criada"
+        */
+        std::string add_bike(const std::string linha);
+
         // Mostra as informações das concessionárias no vector "concessionarias"
         void exibir_concessionarias();
 
-        // Mostra as informações dos veiculos no vector "veiculos"
+        // Mostra as informações dos automoveis no vector "automoveis"
         void exibir_automoveis();
+
+        // Mostra as informações das motos no vector "motos"
+        void exibir_motos();
 };
 
 #endif
