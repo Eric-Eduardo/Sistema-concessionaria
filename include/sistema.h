@@ -9,6 +9,7 @@
 #include "caminhao.h"
 
 // Sistema deve concentrar todas as operações
+
 class Sistema
 {
     private:
@@ -47,17 +48,23 @@ class Sistema
         */
         std::string add_truck(const std::string linha);
 
-        // Mostra as informações das concessionárias no vector "concessionarias"
-        void exibir_concessionarias();
-
-        // Mostra as informações dos automoveis no vector "automoveis"
-        void exibir_automoveis();
-
-        // Mostra as informações das motos no vector "motos"
-        void exibir_motos();
-        
-        // Mostra as informações dos caminhõs no vector "caminhoes"
-        void exibir_caminhoes();
+        /* Template que mostra os elementos de um dado vetor de objetos genérico T
+            @param vetor corresponde a um vetor de objetos do tipo T (Genérico)
+        */
+        template <class T>
+        void exibir(std::vector<T> vetor);
 };
+
+// Template que mostra os elementos de um dado vetor de objetos genérico T
+template <class T>
+void Sistema::exibir(std::vector<T> vetor) {
+    int tamanho = vetor.size();
+
+    std::cout << "\nTotal de elementos: " << tamanho << std::endl;
+
+    for (int i = 0; i < tamanho; i++) {
+        std::cout << vetor[i] << "\n" << std::endl;
+    }
+}
 
 #endif

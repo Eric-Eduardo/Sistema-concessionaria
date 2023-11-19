@@ -11,8 +11,6 @@
 
 # Limitações
 
-* Não é possível compilar com a opção `-fsanitize=address`, pois será emitido um erro.
-   
 # Autoavaliação
 
 - Modelagem e implementação das classes Concessionária, Veículo, Automóvel, Moto, Caminhão | **... / 10**

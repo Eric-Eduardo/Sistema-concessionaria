@@ -32,7 +32,7 @@ string Sistema::quit()
 string Sistema::create_concessionaria(const string linha)
 {
 
-    char * _linha;
+    char _linha[linha.length() + 1];
 
     // Para que possamos utilizar a função strcpy é necessário usar um dado do tipo char*. Então é feita a conversão de string para char*
     strcpy(_linha, linha.c_str());
@@ -45,7 +45,8 @@ string Sistema::create_concessionaria(const string linha)
 
     Concessionaria concessionaria(nome, cnpj);
     concessionarias.push_back(concessionaria);
-    exibir_automoveis();
+    
+    exibir(concessionarias);
     return "Concessionaria criada!";
 }
 
@@ -77,7 +78,8 @@ add-car DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 eletrico
 
     Automovel automovel(concessionaria, marca, preco, chassi, ano, tipoMotor);
     automoveis.push_back(automovel);
-    exibir_automoveis();
+    
+    exibir(automoveis);
     return "Carro criado!";
 }
 
@@ -109,7 +111,8 @@ add-bike DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 esportivo
 
     Moto moto(concessionaria, marca, preco, chassi, ano, modelo);
     motos.push_back(moto);
-    exibir_motos();
+
+    exibir(motos);
 
     return "Moto criada!";
 }
@@ -138,57 +141,10 @@ add-truck DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 perigosa
 
     int ano;
     ano = strtol(ano_str, NULL, 10); // conversão de char* para inteiro
-    
 
     Caminhao caminhao(concessionaria, marca, preco, chassi, ano, tipoCarga);
     caminhoes.push_back(caminhao);
-    exibir_caminhoes();
-
+    
+    exibir(caminhoes);
     return "Caminhão criado!";
-}
-
-// Exibe o nome, cnpj e estoque das concessionárias existentes
-void Sistema::exibir_concessionarias() {
-    int totalConcessionarias = concessionarias.size();
-
-    vector<Concessionaria>::iterator it;
-	
-    cout << totalConcessionarias << " concecionarias encontradas:" << endl;
-
-	for (int i=0; i < totalConcessionarias; i++) {
-		cout << i+1 << ". " << concessionarias[i] << endl;
-	}
-    cout << "\n" << endl;
-}
-
-
-void Sistema::exibir_automoveis() {
-    int totalAutomoveis = automoveis.size();
-	
-    cout << totalAutomoveis << " automoveis encontradas:" << endl;
-
-	for (int i = 0; i < totalAutomoveis; i++) {
-		cout << i+1 << ". " << automoveis[i] << endl;
-	}
-    cout << "\n" << endl;
-}
-
-void Sistema::exibir_motos() {
-    int totalMotos = motos.size();
-	
-    cout << "\nTotal de motos: " << totalMotos << endl;
-
-	for (int i = 0; i < totalMotos; i++) {
-		cout << motos[i] << "\n" << endl;
-	}
-}
-
-void Sistema::exibir_caminhoes() {
-    int totalCaminhoes = caminhoes.size();
-	
-    cout << "\nTotal de caminhões: " << totalCaminhoes << endl;
-
-	for (int i = 0; i < totalCaminhoes; i++) {
-		cout << caminhoes[i] << "\n" << endl;
-	}
 }
