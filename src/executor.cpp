@@ -81,5 +81,11 @@ string Executor::processarLinha(string linha)
         return sistema->add_bike(linha);
     }
 
+    else if (nomeComando == "add-truck") {
+        string linha;
+        linha = restoDe(buf);
+        return sistema->add_truck(linha);
+    }
+
     return "Erro";
 }

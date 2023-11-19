@@ -6,6 +6,7 @@
 #include "concessionaria.h"
 #include "automovel.h"
 #include "moto.h"
+#include "caminhao.h"
 
 // Sistema deve concentrar todas as operações
 class Sistema
@@ -14,6 +15,7 @@ class Sistema
         std::vector<Concessionaria> concessionarias; //um vetor com todos as concessionarias
         std::vector<Automovel> automoveis; //um vetor com todos os automoveis
         std::vector<Moto> motos; //um vetor com todos as motos
+        std::vector<Caminhao> caminhoes; //um vetor com todos os caminhões
     public:
         ~Sistema();
         /*Encerra o funcionamento do programa.
@@ -39,6 +41,12 @@ class Sistema
         */
         std::string add_bike(const std::string linha);
 
+        /* Cria um caminhão e retorna uma string de erro/sucesso
+            @param linha os dados do caminhao
+            @return uma string contendo uma mensagem de erro ou "Caminhão Criado"
+        */
+        std::string add_truck(const std::string linha);
+
         // Mostra as informações das concessionárias no vector "concessionarias"
         void exibir_concessionarias();
 
@@ -47,6 +55,9 @@ class Sistema
 
         // Mostra as informações das motos no vector "motos"
         void exibir_motos();
+        
+        // Mostra as informações dos caminhõs no vector "caminhoes"
+        void exibir_caminhoes();
 };
 
 #endif

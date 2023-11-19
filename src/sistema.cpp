@@ -7,6 +7,7 @@
 #include <iterator>
 #include "automovel.h"
 #include "moto.h"
+#include "caminhao.h"
 // #include <stdlib.h>
 // #include <stdio.h>
 
@@ -113,6 +114,39 @@ add-bike DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 esportivo
     return "Moto criada!";
 }
 
+// Cria um caminhão
+string Sistema::add_truck(const string linha) {
+/* Testes
+add-truck IMD_SA Toyota 100000 9BRBLWHEXG0107721 2019 comum
+add-truck ERIC_teste Geep 10000 ABB66D7CHK77 2020 perigosa
+add-truck DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 perigosa
+*/
+    char _linha[linha.length() + 1];
+    
+    // Para que possamos utilizar a função strcpy é necessário usar um dado do tipo char*. Então é feita a conversão de string para char*
+    strcpy(_linha, linha.c_str());
+    
+    char* concessionaria = strtok(_linha, " ");
+    char* marca = strtok(NULL, " ");
+    char* preco_str = strtok(NULL, " ");
+    char* chassi = strtok(NULL, " ");
+    char* ano_str = strtok(NULL, " ");
+    char* tipoCarga = strtok(NULL, " ");
+
+    float preco;
+    preco = strtof(preco_str, NULL);
+
+    int ano;
+    ano = strtol(ano_str, NULL, 10); // conversão de char* para inteiro
+    
+
+    Caminhao caminhao(concessionaria, marca, preco, chassi, ano, tipoCarga);
+    caminhoes.push_back(caminhao);
+    exibir_caminhoes();
+
+    return "Caminhão criado!";
+}
+
 // Exibe o nome, cnpj e estoque das concessionárias existentes
 void Sistema::exibir_concessionarias() {
     int totalConcessionarias = concessionarias.size();
@@ -126,6 +160,7 @@ void Sistema::exibir_concessionarias() {
 	}
     cout << "\n" << endl;
 }
+
 
 void Sistema::exibir_automoveis() {
     int totalAutomoveis = automoveis.size();
@@ -145,5 +180,15 @@ void Sistema::exibir_motos() {
 
 	for (int i = 0; i < totalMotos; i++) {
 		cout << motos[i] << "\n" << endl;
+	}
+}
+
+void Sistema::exibir_caminhoes() {
+    int totalCaminhoes = caminhoes.size();
+	
+    cout << "\nTotal de caminhões: " << totalCaminhoes << endl;
+
+	for (int i = 0; i < totalCaminhoes; i++) {
+		cout << caminhoes[i] << "\n" << endl;
 	}
 }
