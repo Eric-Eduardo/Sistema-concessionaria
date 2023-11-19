@@ -4,14 +4,14 @@
 #include <string>
 #include <iostream>
 #include "concessionaria.h"
-#include "veiculo.h"
+#include "automovel.h"
 
 // Sistema deve concentrar todas as operações
 class Sistema
 {
     private:
         std::vector<Concessionaria> concessionarias; //um vetor com todos as concessionarias
-        std::vector<Veiculo*> veiculos; //um vetor com todos os automoveis
+        std::vector<Automovel> automoveis; //um vetor com todos os automoveis
     public:
         ~Sistema();
         /*Encerra o funcionamento do programa.
@@ -35,7 +35,7 @@ class Sistema
         void exibir_concessionarias();
 
         // Mostra as informações dos veiculos no vector "veiculos"
-        void exibir_veiculos();
+        void exibir_automoveis();
 };
 
 #endif

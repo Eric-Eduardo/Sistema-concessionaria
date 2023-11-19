@@ -15,11 +15,11 @@ using namespace std;
 
 // Após encerrar o sistema, liberamos todos os veículos criados dinamicamente
 Sistema::~Sistema() {
-    int totalVeiculos = veiculos.size();
+    // int totalVeiculos = veiculos.size();
 
-	for (int i = 0; i < totalVeiculos; i++) {
-        free(veiculos[i]);
-	}
+	// for (int i = 0; i < totalVeiculos; i++) {
+    //     free(veiculos[i]);
+	// }
 }
 
 /* COMANDOS */
@@ -75,14 +75,15 @@ add-car DANIELE_equipadora Wosksvagen 1500 12ZDGG6HKMD6 2021 eletrico
     ano = strtol(ano_str, NULL, 10); // conversão de char* para inteiro
     
 
-    Automovel* automovel = new Automovel(concessionaria, marca, preco, chassi, ano, tipoMotor);
+    Automovel automovel(concessionaria, marca, preco, chassi, ano, tipoMotor);
+    // Automovel* automovel = new Automovel(concessionaria, marca, preco, chassi, ano, tipoMotor);
     /*
     Atribuímos o automovel a um ponteiro para veículo para que seja possívle adicionar no vetor de veículos.
     Essa conversão é possível pois todo automovel é um veiculo.
     */
-    Veiculo* veiculo = automovel; 
-    veiculos.push_back(veiculo);
-
+    // Veiculo* veiculo = automovel; 
+    automoveis.push_back(automovel);
+    exibir_automoveis();
     return "Carro criado!";
 }
 
@@ -99,14 +100,13 @@ void Sistema::exibir_concessionarias() {
 	}
 }
 
-void Sistema::exibir_veiculos() {
-    int totalVeiculos = veiculos.size();
+void Sistema::exibir_automoveis() {
+    int totalVeiculos = automoveis.size();
 	
-    cout << totalVeiculos << " veiculos encontradas:" << endl;
+    cout << totalVeiculos << " automóveis encontradas:" << endl;
 
-    Automovel* automovel;
 	for (int i = 0; i < totalVeiculos; i++) {
-        automovel = (Automovel*)(veiculos[i]);        
-		cout << i+1 << ". " << *automovel << endl;
+        // automovel = (Automovel*)(veiculos[i]);        
+		cout << i+1 << ". " << automoveis[i] << endl;
 	}
 }

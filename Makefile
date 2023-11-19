@@ -25,8 +25,8 @@ build/automovel.o: src/automovel.cpp include/automovel.h
 objects: $(OBJECTS)
 
 programa: objects src/programa.cpp 
-# g++ -Wall -fsanitize=address -Iinclude $(OBJECTS) src/programa.cpp -o bin/programa
-	g++ -Wall -Iinclude $(OBJECTS) src/programa.cpp -o bin/programa
+	g++ -Wall -fsanitize=address -Iinclude $(OBJECTS) src/programa.cpp -o bin/programa
+# g++ -Wall -Iinclude $(OBJECTS) src/programa.cpp -o bin/programa
 
 clean:
 	rm build/*.o bin/programa
