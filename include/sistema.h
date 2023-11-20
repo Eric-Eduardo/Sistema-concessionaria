@@ -18,7 +18,6 @@ class Sistema
         std::vector<Moto> motos; //um vetor com todos as motos
         std::vector<Caminhao> caminhoes; //um vetor com todos os caminhões
     public:
-        ~Sistema();
         /*Encerra o funcionamento do programa.
             @return uma string com a mensagem "Saindo.."
         */
@@ -62,7 +61,7 @@ class Sistema
 
         Veiculo* buscarVeiculo(std::string chassi);
 
-        
+        std::string removerVeiculo(std::string chassi);
 
 };
 

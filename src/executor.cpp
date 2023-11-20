@@ -85,6 +85,10 @@ string Executor::processarLinha(string linha)
         string linha;
         linha = restoDe(buf);
         return sistema->add_truck(linha);
+    } else if (nomeComando == "remove-vehicle") {
+        string linha;
+        linha = restoDe(buf);
+        return sistema->removerVeiculo(linha);
     }
 
     return "Erro";
