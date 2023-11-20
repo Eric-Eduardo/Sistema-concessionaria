@@ -16,6 +16,11 @@ class Veiculo {
         Veiculo(std::string concessionaria, std::string marca, float preco, std::string chassi, int ano);
         ~Veiculo();
         friend std::ostream& operator<< (std::ostream &o, Veiculo const &veiculo);
+        std::string getMarca();
+        float getPreco();
+        std::string getChassi();
+        int getAno();
+        std::string getConcessionaria();
 };
 
 #endif

@@ -53,6 +53,17 @@ class Sistema
         */
         template <class T>
         void exibir(std::vector<T> vetor);
+
+        /* Busca uma determinada concessionária que possui o cnpj dado.
+            @param cnpj é o cnpj da concessionária procurada
+            @return um ponteiro para a concessionária encontrada ou NULL em caso não seja encontrada
+        */
+        Concessionaria* buscarConcessionaria(std::string cnpj);
+
+        Veiculo* buscarVeiculo(std::string chassi);
+
+        
+
 };
 
 // Template que mostra os elementos de um dado vetor de objetos genérico T

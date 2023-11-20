@@ -16,3 +16,9 @@ std::ostream& operator<< (std::ostream &o, Veiculo const &veiculo) {
     o << "Concessionaria: " << veiculo.concessionaria << "; marca: " << veiculo.marca << "; preco: " << veiculo.preco << "; chassi: " << veiculo.chassi << "; ano " << veiculo.ano;
     return o;
 }
+
+std::string Veiculo::getMarca() {return marca;}
+float Veiculo::getPreco() {return preco;}
+std::string Veiculo::getChassi() {return chassi;}
+int Veiculo::getAno() {return ano;}
+std::string Veiculo::getConcessionaria() {return concessionaria;}
