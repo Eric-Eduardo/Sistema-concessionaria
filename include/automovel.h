@@ -1,7 +1,6 @@
 #ifndef AUTOMOVEL_H
 #define AUTOMOVEL_H
 
-// #include <string>
 #include "veiculo.h"
 
 class Automovel : public Veiculo {

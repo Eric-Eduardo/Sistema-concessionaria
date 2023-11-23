@@ -69,7 +69,7 @@ string Executor::processarLinha(string linha)
         return sistema->create_concessionaria(linha);
     }
     
-    else if (nomeComando == "add-car") {
+    if (nomeComando == "add-car") {
         string linha;
         linha = restoDe(buf);
         return sistema->add_car(linha);
@@ -85,11 +85,12 @@ string Executor::processarLinha(string linha)
         string linha;
         linha = restoDe(buf);
         return sistema->add_truck(linha);
-    } else if (nomeComando == "remove-vehicle") {
+    } 
+    else if (nomeComando == "remove-vehicle") {
         string linha;
         linha = restoDe(buf);
         return sistema->removerVeiculo(linha);
     }
 
-    return "Erro";
+    return "Comando não reconhecido";
 }

@@ -1,8 +1,6 @@
 #include "concessionaria.h"
 
-Concessionaria::Concessionaria(std::string _nome, std::string _cnpj): nome(_nome), cnpj(_cnpj) {
-    estoque = 0;
-}
+Concessionaria::Concessionaria(std::string _nome, std::string _cnpj, int estoque_): nome(_nome), cnpj(_cnpj), estoque(estoque_) {}
 
 Concessionaria::~Concessionaria() {}
 

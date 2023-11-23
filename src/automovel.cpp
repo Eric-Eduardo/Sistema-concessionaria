@@ -1,6 +1,5 @@
 #include "automovel.h"
 
-
 Automovel::Automovel(std::string concessionaria_, std::string marca_, float preco_, std::string chassi_, int ano_, std::string tipoMotor_) : Veiculo(concessionaria_, marca_, preco_, chassi_, ano_) {
     tipoMotor = tipoMotor_;
 }
